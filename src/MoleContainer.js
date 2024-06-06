@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Mole from './Mole'
 import EmptySlot from './EmptySlot'
+import './App.css'
 
 function MoleContainer({ setScore }) {
     const [displayMole, setDisplayMole] = useState(false);
@@ -13,11 +14,11 @@ function MoleContainer({ setScore }) {
     }
 
     function showMole() {
-        return displayMole ? <Mole /> : <EmptySlot />;
+        return displayMole ? <Mole setDisplayMole={setDisplayMole} /> : <EmptySlot setDisplayMole={setDisplayMole} />;
     }
 
     return (
-        <div> {/* possible add this to the div for click functionality onClick={moleBopped} */}
+        <div onClick={moleBopped}> {/* possible add this to the div for click functionality onClick={moleBopped} */}
             {showMole()}
         </div>
     );
